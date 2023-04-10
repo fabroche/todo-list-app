@@ -1,0 +1,12 @@
+.tareas-lista-principal {
+    width: 600px;
+    min-height: 500px;
+    /*background-color: #d0d0d5;*/
+    background-color: #c7a717e1;
+    padding: 25px;
+    margin: 10px;
+    justify-content: center;
+    border-radius: 26px;
+    box-shadow: -4px 4px 3px 2px #302d2d;
+    
+}
