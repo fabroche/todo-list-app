@@ -1,12 +1,14 @@
 import React from "react";
 import '../styles/TodoList.css'
+import ListaDeTareas from "./ListaDeTareas.jsx";
 
-function TodoList() {
-	return (
-		<div className="tareas-lista-principal">
-			<h1>Mis Tareas</h1>
-		</div>
-	);
+function TodoList({titulo}) {
+  return (
+    <div className="tareas-lista-principal">
+      <h1>{titulo}</h1>
+      <ListaDeTareas />
+    </div>
+  );
 }
 
 export default TodoList;

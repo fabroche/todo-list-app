@@ -7,6 +7,7 @@ import freeCodeCampLogo from './images/freecodecamp-logo.png'
 // components
 import LogoFreeCodeCamp from './components/LogoFreeCodeCamp'
 import TodoList from './components/TodoList'
+
 // hooks
 
 
@@ -16,8 +17,8 @@ function App() {
   return (
     <div className="aplicacion-tareas">
 
-      <LogoFreeCodeCamp src={freeCodeCampLogo} />
-      <TodoList />
+      <LogoFreeCodeCamp src={freeCodeCampLogo}/>
+      <TodoList titulo="My To-Do's"/>
 
     </div>
   )
