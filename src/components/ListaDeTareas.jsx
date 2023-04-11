@@ -25,7 +25,6 @@ function ListaDeTareas() {
 
   const animacionEliminarTarea = id => {
 
-    // const tareasActualizadas = tareas.filter(tarea=>tarea.id !== id);
     const tareasActualizadas = tareas.map(tarea => {
         if (tarea.id === id) {
           tarea.eliminada = true;
@@ -38,9 +37,10 @@ function ListaDeTareas() {
     setTimeout(eliminarTarea, 300);
   }
 
-  const eliminarTarea = () => {
+  const eliminarTarea = (id) => {
     const tareasActualizadas = tareas.filter(tarea => tarea.eliminada !== true);
-    setTareas(tareasActualizadas)
+    setTareas(tareasActualizadas);
+    // eliminarSubtareasSinPadre(id);
   };
 
   const completarTarea = id => {

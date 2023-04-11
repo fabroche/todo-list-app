@@ -1,8 +1,13 @@
+// hooks
 import React, {useState} from "react";
+
+// estilos
 import '../styles/ListaSubTareas.css'
+
 // components
 import SubTareaFormulario from "./SubTareaFormulario.jsx";
 import SubTarea from "./SubTarea.jsx";
+import tarea from "./Tarea.jsx";
 
 function ListaSubTareas({id, expanded}) {
 
@@ -30,7 +35,6 @@ function ListaSubTareas({id, expanded}) {
 
   const animacionEliminarSubTarea = id => {
 
-    // const tareasActualizadas = tareas.filter(tarea=>tarea.id !== id);
     const tareasActualizadas = subTareas.map(tarea => {
         if (tarea.id === id) {
           tarea.eliminada = true;

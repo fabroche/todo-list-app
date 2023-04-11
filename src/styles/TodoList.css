@@ -3,7 +3,6 @@ h1 {
     font-size: 25px;
     font-family: Roboto, sans-serif;
     text-align: center;
-    /*margin: 20px 0;*/
     margin-top: 0;
     margin-bottom: 20px;
     background-color: #1b1b32;
@@ -16,7 +15,6 @@ h1 {
 .tareas-lista-principal {
     width: 600px;
     min-height: 500px;
-    /*background-color: #d0d0d5;*/
     background-color: #c7a717e1;
     padding: 25px;
     margin: 10px;
