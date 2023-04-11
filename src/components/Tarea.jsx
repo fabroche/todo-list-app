@@ -1,11 +1,15 @@
 // React
-import React from "react";
+import React, {useState} from "react";
 
 // assets
 import '../styles/Tarea.css';
-import {AiOutlineDelete, AiOutlineUpCircle, AiOutlineDownCircle} from 'react-icons/ai';
+import {AiOutlineDelete, AiOutlineDownCircle, AiOutlineUpCircle} from 'react-icons/ai';
+
+// components
+import ListaSubTareas from "./ListaSubTareas.jsx";
 
 function Tarea({id, texto, completada, eliminada, completarTarea, animacionEliminarTarea, expanded, expand}) {
+
   return (
     <>
       <div
@@ -40,11 +44,8 @@ function Tarea({id, texto, completada, eliminada, completarTarea, animacionElimi
           </div>
         }
       </div>
-      <div
-        className={`subtareas-contenedor ${expanded ? 'activate' : ''}`}
-      >
 
-      </div>
+      <ListaSubTareas id={id} expanded={expanded}/>
     </>
   )
 }

@@ -16,7 +16,6 @@ function App() {
 
   return (
     <div className="aplicacion-tareas">
-
       <LogoFreeCodeCamp src={freeCodeCampLogo}/>
       <TodoList titulo="My To-Do's"/>
 

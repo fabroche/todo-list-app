@@ -1,12 +1,13 @@
-.tarea-formulario {
+.subtarea-formulario {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
 
-.tarea-input {
+.subtarea-input {
   width: 350px;
+  height: 20px;
   font-size: 18px;
   background-color: aliceblue;
   padding: 14px 32px 14px 16px;
@@ -18,18 +19,15 @@
   transition: all 0.3s;
 }
 
-/*.tarea-input:focus {*/
-/*  translate: -5.0%;*/
-/*  scale: 1.1;*/
-/*}*/
-
-.tarea-botton {
-  margin-left: 10px;
-  padding: 17px;
+.subtarea-botton {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+  padding: 16px;
   font-size: 18px;
   font-family: Roboto, sans-serif;
   border: none;
-  border-radius: 30px 4px 4px 30px;
+  border-radius: 4px 4px 4px 4px;
   cursor: pointer;
   outline: none;
   background: #1b1b32;
@@ -39,7 +37,7 @@
   transition: all 0.15s;
 }
 
-.tarea-botton:active {
+.subtarea-botton:active {
   background: #43437c;
   translate: -1.5%;
   scale: 0.8;

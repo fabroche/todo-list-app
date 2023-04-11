@@ -1,0 +1,12 @@
+.subtareas-contenedor {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0;
+}
+.subtareas-contenedor.activate {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0;
+}

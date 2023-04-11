@@ -1,0 +1,84 @@
+/*container*/
+.subtarea {
+  width: 550px;
+  min-height: 30px;
+  background-color: aliceblue;
+  margin-top: 10px;
+  padding: 2px 4px 2px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 7px;
+  border: 1px solid aliceblue;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: -1px 1px 1px 0 rgba(0, 0, 0, 0.63);
+  transition: all 0.3s;
+}
+
+/*.subtarea:hover {*/
+/*  translate: -1.5%;*/
+/*  scale: 1.1;*/
+/*  box-shadow: -2px 2px 2px 1px rgba(0, 0, 0, 0.63);*/
+/*}*/
+
+/*.subtarea:hover:focus {*/
+/*  translate: -1.5%;*/
+/*  scale: 1.1;*/
+/*  box-shadow: -2px 2px 2px 1px rgba(0, 0, 0, 0.63)*/
+/*}*/
+
+.subtarea:nth-child(3n + 1) {
+  background-color: #1b1b32
+}
+
+.subtarea:nth-child(3n + 2) {
+  background-color: #2a2a40
+}
+
+.subtarea:nth-child(3n + 3) {
+  background-color: #3b3b4f
+}
+
+/*texto*/
+.subtarea-texto {
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-wrap: anywhere;
+}
+
+/*estados tarea*/
+
+.subtarea.completada {
+  background-color: #5a01a7;
+  text-decoration: line-through;
+}
+
+.subtarea.completada.eliminada {
+  translate: -1.5%;
+  scale: 0.08;
+  opacity: 0;
+}
+
+.subtarea.eliminada {
+  translate: -1.5%;
+  scale: 0.08;
+  opacity: 0;
+}
+
+.subtarea-contenedor-iconos {
+  margin: 5px;
+
+}
+
+/*icon*/
+.subtarea-icono {
+  width: 25px;
+  height: 25px;
+  margin: 0;
+  transition: all 0.3s;
+}
