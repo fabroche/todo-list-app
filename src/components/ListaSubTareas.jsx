@@ -1,5 +1,5 @@
 // hooks
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 // estilos
 import '../styles/ListaSubTareas.css'
@@ -7,11 +7,39 @@ import '../styles/ListaSubTareas.css'
 // components
 import SubTareaFormulario from "./SubTareaFormulario.jsx";
 import SubTarea from "./SubTarea.jsx";
-import tarea from "./Tarea.jsx";
 
-function ListaSubTareas({id, expanded}) {
+function ListaSubTareas(props) {
 
   const [subTareas, setSubTareas] = useState([]);
+  const {cantSubTareas, setcantidadSubTareas} = props
+  const {cantSubTareasCompletadas, setCantidadSubTareasCompletadas} = props
+  const {hookTareas, setEstadoTarea} = props
+
+  useEffect(() => {
+    if (cantSubTareas > 0 && cantSubTareasCompletadas === cantSubTareas) {
+      setEstadoTarea(props.id, true)
+    } else if (cantSubTareas > 0) {
+      setEstadoTarea(props.id, false)
+    }
+  }, [cantSubTareasCompletadas, subTareas]);
+
+  useEffect(() => {
+    if (hookTareas.find(tarea => tarea.id === props.id).completada) {
+      subTareas.map(subtarea => {
+        if (subtarea.idTareaPadre === props.id) {
+          subtarea.completada = true;
+        }
+        return subtarea;
+      })
+    }
+  }, [hookTareas]);
+
+
+  useEffect(() => {
+    setcantidadSubTareas(subTareas.length)
+    setCantidadSubTareasCompletadas(subTareas.length - subTareas.filter(tarea => tarea.completada === false).length)
+  }, [hookTareas, subTareas]);
+
 
   const agregarSubTarea = subtarea => {
     if (subtarea.texto.trim()) {
@@ -30,7 +58,12 @@ function ListaSubTareas({id, expanded}) {
       }
       return tarea;
     });
-    setSubTareas(tareasActualizadas.sort((tarea1, tarea2) => tarea1.completada - tarea2.completada));
+    setSubTareas(tareasActualizadas);
+    setTimeout(ordenarSubtareas, 260)
+  }
+
+  const ordenarSubtareas = () => {
+    setSubTareas(subTareas.sort((tarea1, tarea2) => tarea1.completada - tarea2.completada))
   }
 
   const animacionEliminarSubTarea = id => {
@@ -53,11 +86,13 @@ function ListaSubTareas({id, expanded}) {
 
   return (
     <div
-      className={`subtareas-contenedor ${expanded ? 'activate' : ''}`}
+      className={`subtareas-contenedor ${props.expanded ? 'activate' : ''}`}
     >
-      <SubTareaFormulario onSubmit={agregarSubTarea} idTareaPadre={id}/>
+      <SubTareaFormulario onSubmit={agregarSubTarea} idTareaPadre={props.id} hookTareas={props.hookTareas}
+                          setEstadoTarea={props.setEstadoTarea} subTareas={subTareas}
+                          completarSubTarea={completarSubTarea}/>
       {
-        subTareas.filter(subTarea => subTarea.idTareaPadre === id).map((subtarea) => (
+        subTareas.filter(subTarea => subTarea.idTareaPadre === props.id).map((subtarea) => (
           <SubTarea
             key={subtarea.id}
             id={subtarea.id}
@@ -67,6 +102,7 @@ function ListaSubTareas({id, expanded}) {
             animacionEliminarSubTarea={animacionEliminarSubTarea}
             eliminada={subtarea.eliminada}
             completarSubTarea={completarSubTarea}
+            setEstadoTarea={props.setEstadoTarea}
           />
 
         ))

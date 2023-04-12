@@ -1,5 +1,5 @@
 // hooks
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 // styles
 import '../styles/ListaDeTareas.css'
@@ -50,6 +50,21 @@ function ListaDeTareas() {
       }
       return tarea;
     });
+    setTareas(tareasActualizadas);
+    setTimeout(ordenarTareas, 300);
+  }
+
+  const ordenarTareas = () => {
+    setTareas(tareas.sort((tarea1, tarea2) => tarea1.completada - tarea2.completada));
+  }
+
+  const setEstadoTarea = (id, estado) => {
+    const tareasActualizadas = tareas.map(tarea => {
+      if (tarea.id === id) {
+        tarea.completada = estado;
+      }
+      return tarea;
+    });
     setTareas(tareasActualizadas.sort((tarea1, tarea2) => tarea1.completada - tarea2.completada));
   }
 
@@ -78,8 +93,10 @@ function ListaDeTareas() {
               animacionEliminarTarea={animacionEliminarTarea}
               eliminada={tarea.eliminada}
               completarTarea={completarTarea}
+              setEstadoTarea={setEstadoTarea}
               expanded={tarea.expanded}
               expand={expand}
+              hookTareas={tareas}
             />
           ))
         }

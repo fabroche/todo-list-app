@@ -1,6 +1,6 @@
 import React from "react";
 import '../styles/SubTarea.css';
-import {AiOutlineDelete, AiOutlineCheckSquare, AiOutlineBorder} from 'react-icons/ai';
+import {AiOutlineBorder, AiOutlineCheckSquare, AiOutlineDelete} from 'react-icons/ai';
 
 const SubTarea = ({
                     id,
@@ -19,17 +19,17 @@ const SubTarea = ({
       {completada ?
         <div
           className='subtarea-contenedor-iconos'
-          onClick={() => expand(id)}
+          onClick={() => completarSubTarea(id)}
         >
-          <AiOutlineCheckSquare className='tarea-icono'/>
+          <AiOutlineCheckSquare className='subtarea-icono'/>
         </div>
 
         :
         <div
           className='subtarea-contenedor-iconos'
-          onClick={() => expand(id)}
+          onClick={() => completarSubTarea(id)}
         >
-          <AiOutlineBorder className='tarea-icono'/>
+          <AiOutlineBorder className='subtarea-icono'/>
         </div>
       }
 

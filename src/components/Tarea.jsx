@@ -8,7 +8,29 @@ import {AiOutlineDelete, AiOutlineDownCircle, AiOutlineUpCircle} from 'react-ico
 // components
 import ListaSubTareas from "./ListaSubTareas.jsx";
 
-function Tarea({id, texto, completada, eliminada, completarTarea, animacionEliminarTarea, expanded, expand}) {
+function Tarea({
+                 id,
+                 texto,
+                 completada,
+                 eliminada,
+                 hookTareas,
+                 completarTarea,
+                 setEstadoTarea,
+                 animacionEliminarTarea,
+                 expanded,
+                 expand
+               }) {
+
+  const [cantSubTareas, setCantSubTareas] = useState(0);
+  const [cantSubTareasCompletadas, setCantSubTareasCompletadas] = useState(0);
+
+  const setcantidadSubTareas = (cant) => {
+    setCantSubTareas(cant)
+  }
+
+  const setCantidadSubTareasCompletadas = (cant) => {
+    setCantSubTareasCompletadas(cant)
+  }
 
   return (
     <>
@@ -20,6 +42,13 @@ function Tarea({id, texto, completada, eliminada, completarTarea, animacionElimi
         >
           {texto}
         </div>
+
+        <div
+          className='tarea-texto-cantSubtareas'
+        >
+          {cantSubTareas > 0 ? `${cantSubTareasCompletadas} / ${cantSubTareas}` : ''}
+        </div>
+
         <div
           className='tarea-contenedor-iconos'
           onClick={() => animacionEliminarTarea(id)}
@@ -45,7 +74,10 @@ function Tarea({id, texto, completada, eliminada, completarTarea, animacionElimi
         }
       </div>
 
-      <ListaSubTareas id={id} expanded={expanded}/>
+      <ListaSubTareas id={id} expanded={expanded} hookTareas={hookTareas} setEstadoTarea={setEstadoTarea}
+                      cantSubTareas={cantSubTareas} setcantidadSubTareas={setcantidadSubTareas}
+                      cantSubTareasCompletadas={cantSubTareasCompletadas}
+                      setCantidadSubTareasCompletadas={setCantidadSubTareasCompletadas}/>
     </>
   )
 }

@@ -85,6 +85,15 @@
 }
 
 /*icon*/
+.tarea-texto-cantSubtareas {
+  min-width: 100px;
+  min-height: 25px;
+  font-size: 20px;
+  display: flex;
+  overflow-wrap: anywhere;
+  transition: all 0.3s;
+}
+
 .tarea-icono {
   width: 25px;
   height: 25px;
