@@ -15,14 +15,16 @@ function ListaSubTareas(props) {
   const {cantSubTareasCompletadas, setCantidadSubTareasCompletadas} = props
   const {hookTareas, setEstadoTarea} = props
 
+  // Effect para completar la tarea padre cuando todas sus subtareas estan completadas
   useEffect(() => {
     if (cantSubTareas > 0 && cantSubTareasCompletadas === cantSubTareas) {
       setEstadoTarea(props.id, true)
     } else if (cantSubTareas > 0) {
       setEstadoTarea(props.id, false)
     }
-  }, [cantSubTareasCompletadas, subTareas]);
+  }, [cantSubTareasCompletadas,cantSubTareas]);
 
+  // Effect para completar todas las subtareas cuando la tarea Padre se completa
   useEffect(() => {
     if (hookTareas.find(tarea => tarea.id === props.id).completada) {
       subTareas.map(subtarea => {
