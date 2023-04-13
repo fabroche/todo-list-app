@@ -23,6 +23,9 @@ function Tarea({
 
   const [cantSubTareas, setCantSubTareas] = useState(0);
   const [cantSubTareasCompletadas, setCantSubTareasCompletadas] = useState(0);
+  const [textoTarea, setTextoTarea] = useState(texto);
+
+
 
   const setcantidadSubTareas = (cant) => {
     setCantSubTareas(cant)
@@ -32,19 +35,31 @@ function Tarea({
     setCantSubTareasCompletadas(cant)
   }
 
+  const manejarCambioTexto = (e) => {
+    setTextoTarea(e.target.value)
+  }
+
   return (
     <>
       <div
         className={`tarea-contenedor ${completada ? 'completada' : ''} ${eliminada ? 'eliminada' : ''} ${expanded ? 'expanded' : ''}`}>
+
+        <input type="text"
+               onChange={manejarCambioTexto}
+               className='tarea-texto-input'
+               value={textoTarea}
+               placeholder='Asigne un nombre a su Tarea'
+        />
         <div
-          onClick={() => completarTarea(id)}
           className='tarea-texto'
+          onClick={() => completarTarea(id)}
         >
-          {texto}
+
         </div>
 
         <div
           className='tarea-texto-cantSubtareas'
+          onClick={() => completarTarea(id)}
         >
           {cantSubTareas > 0 ? `${cantSubTareasCompletadas} / ${cantSubTareas}` : ''}
         </div>

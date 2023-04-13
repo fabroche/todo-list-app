@@ -50,6 +50,31 @@
   overflow-wrap: anywhere;
 }
 
+.tarea-texto-input {
+
+  font-size: 20px;
+  display: flex;
+  flex: 1 1;
+  align-items: center;
+  /*overflow-wrap: anywhere;*/
+  border: 0;
+  max-width: 150px;
+  padding: 5px;
+  outline: none;
+  user-select: none;
+  border-radius: 3px;
+  color: aliceblue;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.tarea-texto-input:focus {
+  cursor: auto;
+  background-color: rgba(240, 248, 255, 0.12);
+  color: aliceblue;
+}
+
 /*estados tarea*/
 
 .tarea-contenedor.expanded {

@@ -58,8 +58,8 @@
 
 .subtarea-texto-input:focus {
   cursor: auto;
-  background-color: aliceblue;
-  color: #1b1b32;
+  background-color: rgba(240, 248, 255, 0.16);
+  color: aliceblue;
 
 }
 /*estados tarea*/

@@ -19,10 +19,6 @@ const SubTarea = ({
     setTextoSubtarea(e.target.value)
   }
 
-  const updateTexto = () => {
-    setTextoSubtarea('Asigne un nombre a su Subtarea')
-  }
-
   return (
     <div
       className={`subtarea ${completada ? 'completada' : ''} ${eliminada ? 'eliminada' : ''}`}

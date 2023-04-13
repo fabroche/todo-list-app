@@ -12,6 +12,29 @@ h1 {
 
 }
 
+.todo-title {
+    color: rgb(210, 218, 224);
+    font-size: 25px;
+    font-family: Roboto, sans-serif;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    user-select: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.todo-title:focus{
+    cursor: auto;
+    background-color: rgba(240, 248, 255, 0.07);
+    color: aliceblue;
+}
+
 .tareas-lista-principal {
     width: 600px;
     min-height: 500px;
