@@ -2,14 +2,18 @@
   "name": "todo-list-app",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://fabroche.github.io/todo-list-app/",
   "type": "module",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --base=/todo-list-app/",
     "preview": "vite preview"
   },
   "dependencies": {
     "@react-buddy/ide-toolbox": "^2.3.1",
+    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
