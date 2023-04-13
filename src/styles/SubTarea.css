@@ -39,6 +39,29 @@
   overflow-wrap: anywhere;
 }
 
+.subtarea-texto-input {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  height: 20px;
+  font-size: 18px;
+  padding: 14px 32px 14px 16px;
+  border: 0;
+  outline: none;
+  user-select: none;
+  border-radius: 3px;
+  color: aliceblue;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.subtarea-texto-input:focus {
+  cursor: auto;
+  background-color: aliceblue;
+  color: #1b1b32;
+
+}
 /*estados tarea*/
 
 .subtarea.completada {
@@ -69,4 +92,9 @@
   height: 25px;
   margin: 0;
   transition: all 0.3s;
+}
+
+.subtarea-icono:hover {
+  translate: 1.5%;
+  scale: 1.35;
 }

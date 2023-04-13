@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import '../styles/SubTarea.css';
 import {AiOutlineBorder, AiOutlineCheckSquare, AiOutlineDelete} from 'react-icons/ai';
 
@@ -11,6 +11,18 @@ const SubTarea = ({
                     completarSubTarea,
                     animacionEliminarSubTarea,
                   }) => {
+
+
+  const [textoSubtarea, setTextoSubtarea] = useState(texto);
+
+  const manejarCambioTexto = (e) => {
+    setTextoSubtarea(e.target.value)
+  }
+
+  const updateTexto = () => {
+    setTextoSubtarea('Asigne un nombre a su Subtarea')
+  }
+
   return (
     <div
       className={`subtarea ${completada ? 'completada' : ''} ${eliminada ? 'eliminada' : ''}`}
@@ -34,10 +46,14 @@ const SubTarea = ({
       }
 
       <div
-        onClick={() => completarSubTarea(id)}
         className='subtarea-texto'
       >
-        {texto}
+        <input type="text"
+               onChange={manejarCambioTexto}
+               className='subtarea-texto-input'
+               value={textoSubtarea}
+               placeholder='Asigne un nombre a su Tarea'
+        />
       </div>
       <div
         className='subtarea-contenedor-iconos'
