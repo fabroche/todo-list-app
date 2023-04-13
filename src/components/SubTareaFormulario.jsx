@@ -1,16 +1,15 @@
-import React, {useState} from "react";
-import {v4 as uuidv4} from 'uuid'
+import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 // styles
-import '../styles/SubTareasFormulario.css'
+import "../styles/SubTareasFormulario.css";
 
 function SubTareaFormulario(props) {
-
-  const [subTareaInput, setSubTareaInput] = useState('');
+  const [subTareaInput, setSubTareaInput] = useState("");
 
   const manejarCambio = (cambio) => {
     setSubTareaInput(cambio.target.value);
     console.log(cambio.target.value);
-  }
+  };
 
   const manejarEnvio = (envio) => {
     envio.preventDefault();
@@ -21,28 +20,20 @@ function SubTareaFormulario(props) {
       texto: subTareaInput,
       completada: false,
       eliminada: false,
-    }
-    console.log(`Agregando ${subTareaNueva.texto}`)
+    };
     props.onSubmit(subTareaNueva);
-  }
+  };
 
   return (
-    <form
-      className='subtarea-formulario'
-      onSubmit={manejarEnvio}
-    >
+    <form className="subtarea-formulario" onSubmit={manejarEnvio}>
       <input
         onChange={manejarCambio}
-        className='subtarea-input'
+        className="subtarea-input"
         type="text"
-        placeholder='Agrega una subtarea'
-        name='texto'
+        placeholder="Agrega una subtarea"
+        name="texto"
       />
-      <button
-        className='subtarea-botton'
-      >
-      </button>
-
+      <button className="subtarea-botton"></button>
     </form>
   );
 }
