@@ -1,6 +1,6 @@
 .tarea-formulario {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
 }
@@ -16,6 +16,10 @@
   border-radius: 3px;
   box-shadow: -1px 1px 1px 0px rgba(0, 0, 0, 0.63);
   transition: all 0.3s;
+}
+.tarea-input:focus {
+  scale: 1.01;
+  box-shadow: -1px 2px 2px 2px rgba(0, 0, 0, 0.63);
 }
 
 .tarea-botton {
@@ -38,4 +42,16 @@
   background: #43437c;
   translate: -1.5%;
   scale: 0.8;
+}
+
+@media (max-width: 599px) {
+  .tarea-input {
+    width: 200px;
+  }
+  .tarea-botton {
+    width: 80px;
+    padding: 20px 10px 10px 10px;
+    height: 75px;
+    border-radius: 40px;
+  }
 }

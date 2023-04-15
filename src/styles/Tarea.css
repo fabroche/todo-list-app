@@ -16,6 +16,7 @@
   transition: all 0.3s;
 }
 
+
 .tarea-contenedor:hover {
   translate: -1.5%;
   scale: 1.1;
@@ -25,19 +26,19 @@
 .tarea-contenedor:hover:focus {
   translate: -1.5%;
   scale: 1.1;
-  box-shadow: -2px 2px 2px 1px rgba(0, 0, 0, 0.63)
+  box-shadow: -2px 2px 2px 1px rgba(0, 0, 0, 0.63);
 }
 
 .tarea-contenedor:nth-child(3n + 1) {
-  background-color: #1b1b32
+  background-color: #1b1b32;
 }
 
 .tarea-contenedor:nth-child(3n + 2) {
-  background-color: #2a2a40
+  background-color: #2a2a40;
 }
 
 .tarea-contenedor:nth-child(3n + 3) {
-  background-color: #3b3b4f
+  background-color: #3b3b4f;
 }
 
 /*texto*/
@@ -51,7 +52,6 @@
 }
 
 .tarea-texto-input {
-
   font-size: 20px;
   display: flex;
   flex: 1 1;
@@ -102,11 +102,9 @@
   opacity: 0;
 }
 
-
 /*container-icon*/
 .tarea-contenedor-iconos {
   margin: 3px;
-
 }
 
 /*icon*/
@@ -149,4 +147,28 @@
   box-shadow: 0 -1px 1px 1px rgba(0, 0, 0, 0.63);
   text-shadow: 1px 1px 2px #1b1b32;
   transition: all 0.3s;
+}
+
+
+@media (max-width: 599px) {
+  .tarea-contenedor{
+    width: 300px;
+  }
+  .tarea-icono {
+    width: 20px;
+    height: 20px;
+  }
+
+  .tarea-texto-cantSubtareas {
+    min-width: 60px;
+    min-height: 25px;
+    font-size: 20px;
+    display: flex;
+    overflow-wrap: anywhere;
+    transition: all 0.3s;
+  }
+  .subtareas-contenedor.activate {
+    width: 280px;
+    min-height: 35px;
+  }
 }

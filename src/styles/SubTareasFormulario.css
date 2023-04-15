@@ -1,6 +1,6 @@
 .subtarea-formulario {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
 }
@@ -17,6 +17,20 @@
   border-radius: 3px;
   box-shadow: -1px 1px 1px 0px rgba(0, 0, 0, 0.63);
   transition: all 0.3s;
+}
+
+@media (max-width:599px) {
+  .subtarea-input {
+  
+    width: 150px;
+    height: 20px;
+  }
+}
+
+.subtarea-input:focus {
+  scale: 1.01;
+  box-shadow: -1px 2px 1px 1px rgba(0, 0, 0, 0.63);
+  
 }
 
 .subtarea-botton {

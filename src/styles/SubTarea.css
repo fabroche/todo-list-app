@@ -16,6 +16,13 @@
   transition: all 0.3s;
 }
 
+@media (max-width: 599px) {
+  .subtarea {
+    min-width: 150px;
+
+  }
+}
+
 .subtarea:nth-child(3n + 1) {
   background-color: #1b1b32
 }
@@ -37,6 +44,13 @@
   align-items: center;
   justify-content: center;
   overflow-wrap: anywhere;
+}
+
+@media (max-width: 599px) {
+  .subtarea {
+    min-width: 150px;
+    width: 99%;
+  }
 }
 
 .subtarea-texto-input {
