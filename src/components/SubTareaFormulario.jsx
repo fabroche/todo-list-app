@@ -8,7 +8,6 @@ function SubTareaFormulario(props) {
 
   const manejarCambio = (cambio) => {
     setSubTareaInput(cambio.target.value);
-    console.log(cambio.target.value);
   };
 
   const manejarEnvio = (envio) => {

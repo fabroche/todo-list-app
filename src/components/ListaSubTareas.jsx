@@ -21,7 +21,6 @@ function ListaSubTareas(props) {
       "subTareas",
       JSON.stringify(subTareas)
     );
-    console.log(subTareas)
   }, [subTareas]);
 
   // Effect para completar la tarea padre cuando todas sus subtareas estan completadas
@@ -43,13 +42,26 @@ function ListaSubTareas(props) {
         return subtarea;
       });
     }
-    subTareas.map((subtarea) => {
-      if (!hookTareas.filter((tarea) => tarea.id === subtarea.idTareaPadre)) {
-        subtarea.eliminada = true;
-      }
-    });
-    eliminarSubTarea();
+
   }, [hookTareas]);
+
+  useEffect(() => {
+    subTareas.map((subtarea) => {
+
+
+      for (let tarea of hookTareas) {
+        if (!hookTareas.find(tarea => tarea.id === subtarea.idTareaPadre)) {
+          subtarea.eliminada = true;
+        }
+      }
+      return subtarea;
+    });
+
+
+    eliminarSubTarea()
+
+
+  }, [hookTareas])
 
   // Efecto para llevar el conteo de la cantidad de subTareas Completadas
   useEffect(() => {
@@ -59,10 +71,10 @@ function ListaSubTareas(props) {
 
     setCantidadSubTareasCompletadas(
       subTareas.filter((tarea) => tarea.idTareaPadre === props.id).length -
-        subTareas.filter(
-          (tarea) =>
-            tarea.idTareaPadre === props.id && tarea.completada === false
-        ).length
+      subTareas.filter(
+        (tarea) =>
+          tarea.idTareaPadre === props.id && tarea.completada === false
+      ).length
     );
   }, [hookTareas, subTareas]);
 
